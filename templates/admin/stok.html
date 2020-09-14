@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Stok</h3>
+<hr>
+<form method="post">
+	<table class="table table-bordered" id="mytable" data-btn="alink" data-alink="{{ url_for('admin.tambah_stok') }}">
+		<thead>
+			<tr>
+				<th class="tb-no">No</th>
+				<th>Produk</th>
+				<th>Harga</th>
+				<th>Berat</th>
+				<th>Kategori</th>
+				<th>Diskon</th>
+				<th>Deskripsi</th>
+				<th class="tb-act-2">Aksi</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</form>
+
+{% endblock %}

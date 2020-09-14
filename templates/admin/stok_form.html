@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>{{ data['title'] }} Stok</h3>
+<hr>
+<form method="post" enctype="multipart/form-data">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="form-group">
+				<label>Produk</label>
+				<input type="text" class="form-control" name="produk">
+			</div>
+			<div class="form-group">
+				<label>Deskripsi</label>
+				<textarea class="form-control" name="deskripsi" rows="15"></textarea>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="form-group">
+				<label>Gambar</label>
+				<input type="file" class="form-control" name="gambar">
+			</div>
+			<div class="form-group">
+				<label>Kategori</label>
+				<select class="form-control" name="kategori">
+					<option value="">- Pilih Kategori -</option>
+					{% for item in data['kategori'].items() %}
+					<option>{{ item[1][1] }}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="form-group">
+				<label>Berat</label>
+				<input type="number" class="form-control" name="berat">
+			</div>
+			<div class="form-group">
+				<label>Harga</label>
+				<input type="number" class="form-control" name="harga">
+			</div>
+			<div class="form-group">
+				<label>Diskon</label>
+				<input type="number" class="form-control" name="diskon">
+			</div>
+			<div class="form-group">
+				<a href="{{ url_for('admin.stok') }}" class="btn btn-warning">Kembali</a>
+				<button type="submit" class="btn btn-success" name="save" value="1">Simpan</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endblock %}
